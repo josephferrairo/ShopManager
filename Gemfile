@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails_12factor', group: :production
 gem 'bootstrap-sass'
 gem 'sprockets'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri
