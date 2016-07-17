@@ -1,0 +1,5 @@
+<%= simple_form_for @procedure do |m| %>
+<%= m.input :name, label: "Name" %>
+<%= m.association :work_instructions, as: :check_boxes %>
+<%= m.submit "Submit" %>
+<% end %>
