@@ -1,5 +1,4 @@
 class ProceduresController < ApplicationController
-
   def index
   end
 
@@ -10,19 +9,11 @@ class ProceduresController < ApplicationController
   def new
     @procedure = Procedure.new
     @procedure.work_instructions.build
-    #binding.pry
-    #@work_instructions = WorkInstruction.all
-    #  @procedure_work_instructions = ProcedureWorkInstruction.all
-    # @all_work_instructions = WorkInstruction.all
-    #@procedure.procedure_work_instructions.build
   end
 
   def create
     @procedure = Procedure.create(procedure_params)
     if @procedure.save
-
-
-      #binding.pry
       params[:procedure]['work_instruction_ids'].each do |work_instruction|
         if !work_instruction.empty?
           @procedure.procedure_work_instructions.create(:work_instruction_id => work_instruction)
