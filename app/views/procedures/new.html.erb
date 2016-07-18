@@ -1,5 +1,4 @@
-<%= simple_form_for @procedure do |m| %>
-<%= m.input :name, label: "Name" %>
-<%= m.association :work_instructions, as: :check_boxes %>
-<%= m.submit "Submit" %>
-<% end %>
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+  <h2 class="text-center">Add a New Procedure</h2>
+  <%= render "form" %>
+</div>

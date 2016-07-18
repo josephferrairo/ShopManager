@@ -1,5 +1,4 @@
-<%= simple_form_for @work_instruction, url: work_instructions_path do |f| %>
-<%= f.input :name, label: "Name" %>
-<%= f.submit "Submit", class: 'btn btn-primary' %>
-
-<% end %>
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+  <h2 class="text-center">Add a New Work Instruction</h2>
+  <%= render "form" %>
+</div>
