@@ -1,5 +1,7 @@
 <%= simple_form_for @work_instruction, url: work_instructions_path do |f| %>
 <%= f.input :name, label: "Name" %>
+<%= f.input :workcode, label: "Code" %>
+<%= f.input :description, label: "Description" %>
 <%= f.submit "Submit", class: 'btn btn-primary' %>
 
 <% end %>

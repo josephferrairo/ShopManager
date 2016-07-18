@@ -15,7 +15,7 @@ class WorkInstructionsController < ApplicationController
 private
 
   def work_instruction_params
-    params.require(:work_instruction).permit(:name)
+    params.require(:work_instruction).permit(:name, :workcode, :description)
   end
 
 end

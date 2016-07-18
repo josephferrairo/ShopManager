@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717214853) do
+ActiveRecord::Schema.define(version: 20160718002258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20160717214853) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "procedure_id"
+    t.string   "workcode"
+    t.text     "description"
   end
 
 end
