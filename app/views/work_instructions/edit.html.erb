@@ -1,0 +1,6 @@
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+  <h2 class="text-center">Edit Work Instruction</h2>
+  <%= render "form" %>
+  <br />
+    <%= link_to 'Delete Record', work_instruction_path(@work_instruction), :method => :delete, :data => { :confirm => 'Are you sure you want to delete this record?' }, :class => 'btn btn-danger' %>
+</div>

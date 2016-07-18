@@ -15,8 +15,14 @@ gem 'bootstrap-sass'
 gem 'sprockets'
 gem 'simple_form'
 
+
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.4'
+  gem 'faker'
+  gem 'fabrication'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'capybara'
 end
 
 group :development do
@@ -27,6 +33,8 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'pry'
+  gem 'guard-rspec', require: false
+
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

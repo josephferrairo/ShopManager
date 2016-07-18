@@ -1,8 +1,9 @@
 <%= @procedure.name %>
-<% @procedure.work_instructions.each do |work_instruction| %>
-<ul>
-<li><%= work_instruction.name %></li>
-<li><%= work_instruction.workcode %></li>
-<li><%= work_instruction.description %></li>
-</ul>
+  <% @procedure.work_instructions.each do |work_instruction| %>
+    <ul>
+      <li><%= work_instruction.name %></li>
+      <li><%= work_instruction.workcode %></li>
+      <li><%= work_instruction.description %></li>
+    </ul>
+
 <% end %>
