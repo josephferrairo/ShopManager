@@ -1,9 +1,10 @@
-<%= @procedure.name %>
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+  <%= @procedure.name %>
   <% @procedure.work_instructions.each do |work_instruction| %>
-    <ul>
-      <li><%= work_instruction.name %></li>
-      <li><%= work_instruction.workcode %></li>
-      <li><%= work_instruction.description %></li>
-    </ul>
-
-<% end %>
+  <ul>
+    <%= work_instruction.name %>,
+    <%= work_instruction.workcode %>,
+    <%= work_instruction.description %>
+  </ul>
+  <% end %>
+</div>

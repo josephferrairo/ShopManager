@@ -10,6 +10,6 @@ RSpec.feature "creating work instruction" do
 
     click_button "Submit"
 
-    expect(page).to have_content 'New instructions have been created!'
+    expect(page).to have_content 'Instructions have been saved!'
   end
 end

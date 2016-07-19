@@ -1,5 +1,7 @@
 class ProceduresController < ApplicationController
+
   def index
+    @procedure = Procedure.all
   end
 
   def show
@@ -20,8 +22,7 @@ class ProceduresController < ApplicationController
         end
       end
     end
-    @work_instructions = WorkInstruction.all
-    redirect_to root_path
+    valid_procedure
   end
 end
 
@@ -29,4 +30,13 @@ private
 
 def procedure_params
   params.require(:procedure).permit(:name, :work_instructions_attributes => [:name, :id] )
+end
+
+def valid_procedure
+  if @procedure.valid?
+    flash[:success] = 'Procedure has been saved!'
+    redirect_to @procedure
+  else
+    render :new, :status => :unprocessable_entity
+  end
 end
