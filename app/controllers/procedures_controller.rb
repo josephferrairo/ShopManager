@@ -1,11 +1,12 @@
 class ProceduresController < ApplicationController
+  before_action :find_procedure, except: [:index, :new, :create]
 
   def index
     @procedure = Procedure.all
   end
 
   def show
-    @procedure = Procedure.find(params[:id])
+    find_procedure
   end
 
   def new
@@ -26,7 +27,7 @@ class ProceduresController < ApplicationController
   end
 
   def edit
-    @procedure = Procedure.find(params[:id])
+    find_procedure
   end
 
 
@@ -44,7 +45,7 @@ class ProceduresController < ApplicationController
   end
 
   def destroy
-    @procedure = Procedure.find(params[:id])
+    find_procedure
     @procedure.destroy
     redirect_to root_path
   end
@@ -54,6 +55,10 @@ private
 
 def procedure_params
   params.require(:procedure).permit(:name, :procedurecode, [:work_instructions_attributes => [:name, :id]] )
+end
+
+def find_procedure
+  @procedure = Procedure.find(params[:id])
 end
 
 def valid_procedure
