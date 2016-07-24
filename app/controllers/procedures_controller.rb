@@ -23,7 +23,12 @@ class ProceduresController < ApplicationController
         end
       end
     end
-    valid_procedure
+    if @procedure.valid?
+      flash[:success] = 'Procedure has been saved!'
+      redirect_to @procedure
+    else
+      render :new, :status => :unprocessable_entity
+    end
   end
 
   def edit
@@ -41,7 +46,12 @@ class ProceduresController < ApplicationController
         end
       end
     end
-    valid_procedure
+    if @procedure.valid?
+      flash[:success] = 'Procedure has been saved!'
+      redirect_to @procedure
+    else
+      render :edit, :status => :unprocessable_entity
+    end
   end
 
   def destroy
@@ -59,13 +69,4 @@ end
 
 def find_procedure
   @procedure = Procedure.find(params[:id])
-end
-
-def valid_procedure
-  if @procedure.valid?
-    flash[:success] = 'Procedure has been saved!'
-    redirect_to @procedure
-  else
-    render :new, :status => :unprocessable_entity
-  end
 end
