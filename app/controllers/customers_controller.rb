@@ -1,11 +1,11 @@
 class CustomersController < ApplicationController
+  before_action :find_customer, except: [:index, :new, :create]
 
   def index
     @customer = Customer.all
   end
 
   def show
-    @customer = Customer.find(params[:id])
   end
 
   def new
@@ -23,11 +23,9 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
   end
 
   def update
-    @customer = Customer.find(params[:id])
     @customer.update_attributes(customer_params)
     if @customer.save
       flash[:success] = 'Customer has been saved!'
@@ -38,7 +36,6 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer = Customer.find(params[:id])
     @customer.destroy
     flash[:error] = 'Customer has been deleted!'
     redirect_to root_path
@@ -47,5 +44,9 @@ class CustomersController < ApplicationController
   private
   def customer_params
     params.require(:customer).permit(:name,  :customercode, :address, :addressdetails, :city, :state, :zipcode)
+  end
+
+  def find_customer
+    @customer = Customer.find(params[:id])
   end
 end
