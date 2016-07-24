@@ -39,7 +39,6 @@ RSpec.describe CustomersController, :type => :controller do
   end
 
   describe "Put #update" do
-
     context "successful update" do
       let(:abc) { Fabricate(:customer, name: "ABC")}
 
