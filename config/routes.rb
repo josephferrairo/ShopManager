@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :procedures
   resources :work_instructions
+  resources :customers
 end

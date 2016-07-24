@@ -1,0 +1,11 @@
+<%= simple_form_for @customer, url: customers_path do |f| %>
+<%= f.input :name, label: "Name" %>
+<%= f.input :customercode, label: 'Customer Code'  %>
+<%= f.input :address, label: 'Address line 1' %>
+<%= f.input :addressdetails, label: 'Address line 2' %>
+<%= f.input :city %>
+<%= f.input :state %>
+<%= f.input :zipcode, label: 'Zip' %>
+<br  />
+<%= f.submit "Submit", class: 'btn btn-primary' %>
+<% end %>
