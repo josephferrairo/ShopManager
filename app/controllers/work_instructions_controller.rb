@@ -21,34 +21,36 @@ class WorkInstructionsController < ApplicationController
       render :new, :status => :unprocessable_entity
     end
   end
-end
 
-def edit
-end
 
-def update
-  @work_instruction.update_attributes(work_instruction_params)
-  if @work_instruction.save
-    flash[:success] = 'Instructions have been saved!'
-    redirect_to work_instructions_path
-  else
-    render :edit, :status => :unprocessable_entity
+  def edit
   end
-end
+
+  def update
+    @work_instruction.update_attributes(work_instruction_params)
+    if @work_instruction.save
+      flash[:success] = 'Instructions have been saved!'
+      redirect_to @work_instruction
+    else
+      render :edit, :status => :unprocessable_entity
+    end
+  end
 
 
-def destroy
-  @work_instruction.destroy
-  redirect_to root_path
-end
+  def destroy
+    @work_instruction.destroy
+    flash[:error] = 'Work Instruction has been deleted!'
+    redirect_to root_path
+  end
 
 
-private
+  private
 
-def work_instruction_params
-  params.require(:work_instruction).permit(:name, :workcode, :description)
-end
+  def work_instruction_params
+    params.require(:work_instruction).permit(:name, :workcode, :description)
+  end
 
-def find_work_instruction
-  @work_instruction = WorkInstruction.find(params[:id])
+  def find_work_instruction
+    @work_instruction = WorkInstruction.find(params[:id])
+  end
 end

@@ -57,6 +57,7 @@ class ProceduresController < ApplicationController
   def destroy
     find_procedure
     @procedure.destroy
+    flash[:error] = 'Procedure has been deleted!'
     redirect_to root_path
   end
 end
