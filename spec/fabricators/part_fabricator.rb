@@ -1,0 +1,2 @@
+Fabricator(:part) do
+end
