@@ -1,29 +1,29 @@
-<%= simple_form_for @procedure do |m| %>
-<%= m.input :name, label: "Name" %>
-<%= m.input :procedurecode, label: "Code" %>
+<%= simple_form_for @procedure do |f| %>
+<%= f.input :name, label: "Name" %>
+<%= f.input :procedurecode, label: "Code" %>
 <table>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
 </table>
 <table>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
 </table>
 <table>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
-  <td><%= m.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
+  <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
 </table>
-<%= m.submit "Submit", class: 'btn btn-primary' %>
+<%= f.submit "Submit", class: 'btn btn-primary' %>
 <% end %>
