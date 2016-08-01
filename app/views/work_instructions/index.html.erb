@@ -1,9 +1,17 @@
-<% @work_instruction.each do |work_instruction| %>
-<div class="booyah-box col-xs-10 col-xs-offset-1">
-<ul>
-<ul><%= work_instruction.name %></ul>
-<ul><%= work_instruction.workcode %></ul>
-<ul><%= work_instruction.description %></ul>
-</ul>
-</div>
-<% end %>
+<table class="table-striped col-xs-12">
+  <tr>
+    <th><b>Name</b></th>
+    <th><b>Code</b></th>
+    <th><b>Description</b></th>
+    <th><b>More Info?</b></th>
+    <th>
+    </tr>
+    <% @work_instruction.each do |work_instruction| %>
+    <tr>
+      <td><%= work_instruction.name %></td>
+      <td><%= work_instruction.workcode %></td>
+      <td><%= work_instruction.description %></td>
+      <td><%= link_to 'More Info', work_instruction_path(work_instruction), class: 'btn btn-primary btn-md' %></td>
+
+    </tr>
+    <% end %>

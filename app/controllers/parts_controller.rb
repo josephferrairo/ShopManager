@@ -8,7 +8,12 @@ class PartsController < ApplicationController
   def create
     @customer = Customer.find(params[:customer_id])
     @part = @customer.parts.create(part_params)
-    redirect_to customer_path(@customer)
+    if @part.valid?
+      flash[:success] = 'New Part has been created!'
+      redirect_to customer_path(@customer)
+    else
+      render :new, :status => :unprocessable_entity
+    end
   end
 
   private

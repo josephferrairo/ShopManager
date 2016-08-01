@@ -20,18 +20,27 @@
 
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <h3 class="text center">Parts</h3>
-  <% @customer.parts.each do |part| %>
 
   <table class="table">
     <tr class="default">
-      <td><b>Part Number: </b><%= part.name %></td>
-      <td><b>Part Description </b><%= part.description %></td>
-      <td><b>Price </b><%= part.price %></td>
-      <td><b>Procedure </b><%= part.procedure.name %></td>
+      <th><b>Part Number</b></th>
+      <th><b>Part Description</b></th>
+      <th><b>Price</b></th>
+      <th><b>Procedure </b></th>
+      <th><b>Edit Part?</b></th>
     </tr>
+    <% @customer.parts.each do |part| %>
+    <tr class="default">
+      <td><%= part.name %></td>
+      <td><%= part.description %></td>
+      <td><%= part.price %></td>
+      <td><%= part.procedure.name %></td>
+      <td><%= link_to 'Edit Part', edit_customer_part_path(@customer), class: 'btn btn-primary btn-md' %></td>
+    </tr>
+    <% end %>
   </table>
 
-  <% end %>
+
 
 
 </div>

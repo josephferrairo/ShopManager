@@ -1,0 +1,14 @@
+<table class="table-striped col-xs-12">
+  <tr>
+    <th><b>Name</b></th>
+    <th><b>Procedure Code</b></th>
+    <th>
+  </tr>
+  <% @procedure.each do |procedure| %>
+  <tr>
+    <td><%= procedure.name %></td>
+    <td><%= procedure.procedurecode %></td>
+    <td><%= link_to 'More Info', procedure_path(procedure), class: 'btn btn-primary btn-md' %></td>
+
+  </tr>
+  <% end %>
