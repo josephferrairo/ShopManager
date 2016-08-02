@@ -34,6 +34,7 @@ group :development do
   gem "binding_of_caller"
   gem 'pry'
   gem 'guard-rspec', require: false
+  gem 'bullet'
 
 end
 
