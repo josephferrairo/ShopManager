@@ -7,7 +7,6 @@ RSpec.describe PartsController, type: :controller do
     end
 
     describe "get #new" do
-      customer_before
       it "returns a successful http request status code" do
         get :new, :customer_id => @customer
         expect(response).to have_http_status(:success)
@@ -15,7 +14,6 @@ RSpec.describe PartsController, type: :controller do
     end
 
     describe "POST #create" do
-      customer_before
       context "a successful create" do
         it "saves a new part object" do
           post :create, :customer_id => @customer,

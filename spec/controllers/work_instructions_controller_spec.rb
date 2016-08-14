@@ -30,7 +30,8 @@ RSpec.describe WorkInstructionsController, type: :controller do
     context "a successful create" do
       it "saves a new work instruction object" do
 
-        post :create, work_instruction: Fabricate.attributes_for(:work_instruction)
+        post :create, work_instruction:
+        Fabricate.attributes_for(:work_instruction)
         expect(WorkInstruction.count).to eq(1)
       end
     end
