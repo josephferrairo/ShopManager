@@ -1,4 +1,4 @@
-<%= simple_form_for @part, url: customer_parts_path(@customer) do |f| %>
+<%= simple_form_for ([@customer, @part]) do |f| %>
 <table>
   <tr><%= f.input :name, label: 'Name' %></tr>
   <tr><%= f.input :description, label: 'Description' %></tr>

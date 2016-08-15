@@ -35,7 +35,7 @@
       <td><%= part.description %></td>
       <td><%= part.price %></td>
       <td><%= part.procedure.name %></td>
-      <td><%= link_to 'Edit Part', edit_customer_part_path(@customer), class: 'btn btn-primary btn-md' %></td>
+      <td><%= link_to 'Edit Part', edit_customer_part_path(@customer, part), class: 'btn btn-primary btn-md' %></td>
     </tr>
     <% end %>
   </table>
