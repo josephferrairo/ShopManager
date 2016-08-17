@@ -17,7 +17,7 @@ class ProceduresController < ApplicationController
   def create
     @procedure = Procedure.create(procedure_params)
     if @procedure.save
-      params[:procedure]['work_instruction_ids'].each do |work_instruction|
+      (params[:procedure]['work_instruction_ids'].to_a).each do |work_instruction|
         if !work_instruction.empty?
           @procedure.procedure_work_instructions.create(:work_instruction_id => work_instruction)
         end
@@ -40,7 +40,7 @@ class ProceduresController < ApplicationController
     @procedure = Procedure.find(params[:id])
     @procedure.update_attributes!(procedure_params)
     if @procedure.save
-      params[:procedure]['work_instruction_ids'].each do |work_instruction|
+      (params[:procedure]['work_instruction_ids'].to_a).each do |work_instruction|
         if !work_instruction.empty?
           @procedure.procedure_work_instructions.create(:work_instruction_id => work_instruction)
         end
