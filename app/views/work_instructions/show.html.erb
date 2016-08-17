@@ -3,9 +3,11 @@
     <th><b>Name</b></th>
     <th><b>Code</b></th>
     <th><b>Description</b></th>
+    <th><b>Edit?</b></th>
 <tr>
   <td><%= @work_instruction.name %></td>
   <td><%= @work_instruction.workcode %></td>
   <td><%= @work_instruction.description %></td>
+  <td><%= link_to 'Edit', edit_work_instruction_path(@work_instruction), class: 'btn btn-primary btn-md' %></td>
   </tr>
 </table>
