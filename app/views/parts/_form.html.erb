@@ -1,11 +1,15 @@
-<%= simple_form_for ([@customer, @part]) do |f| %>
+<%= simple_form_for @part do |f| %>
 <table>
   <tr><%= f.input :name, label: 'Name' %></tr>
   <tr><%= f.input :description, label: 'Description' %></tr>
+  <td><%= f.input :price, label: 'Price' %></td>
+    <td><b> Customer:</b>  <%= f.collection_select :customer_id, Customer.all, :id, :name, label: 'Select a Customer' %></td>
+      <td><b> Procedure</b><%= f.collection_select :procedure_id, Procedure.all, :id, :name, label: 'Select a Procedure' %></td>
+
 </table>
 <table>
-  <td><%= f.input :price, label: 'Price' %></td>
-  <td><%= f.collection_select :procedure_id, Procedure.all, :id, :name, label: 'Select a Procedure' %></td>
+
+
 </table>
 <%= f.submit "Submit", class: 'btn btn-primary' %>
 <% end %>

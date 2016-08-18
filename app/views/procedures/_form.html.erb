@@ -1,6 +1,7 @@
 <%= simple_form_for @procedure do |f| %>
 <%= f.input :name, label: "Name" %>
 <%= f.input :procedurecode, label: "Code" %>
+
 <table>
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
@@ -9,6 +10,7 @@
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
 </table>
+
 <table>
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
@@ -17,6 +19,7 @@
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
 </table>
+
 <table>
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
@@ -25,5 +28,6 @@
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
   <td><%= f.association :work_instructions, as: :select, allow_blank: :true %></td>
 </table>
+
 <%= f.submit "Submit", class: 'btn btn-primary' %>
 <% end %>

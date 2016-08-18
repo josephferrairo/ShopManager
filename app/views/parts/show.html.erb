@@ -1,0 +1,21 @@
+<table class="table-striped col-xs-12">
+  <tr>
+    <th><b>Name</b></th>
+    <th><b>Description</b></th>
+    <th><b>Procedure</b></th>
+    <th><b>Price</b></th>
+    <th><b>Customer</b></th>
+    <th><b>Edit?</b></th>
+    <th>
+    <th>
+  </tr>
+
+  <tr>
+    <td><%= @part.name %></td>
+    <td><%= @part.description %></td>
+    <td><%= @part.procedure.name %></td>
+    <td><%= @part.price %></td>
+    <td><%= @part.customer.name %></td>
+    <td><%= link_to 'Edit Part', edit_part_path(@part), class: 'btn btn-primary btn-md' %></td>
+
+  </tr>

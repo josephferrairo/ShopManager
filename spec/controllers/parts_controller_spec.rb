@@ -1,15 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe PartsController, type: :controller do
-  before(:each) do
-    @customer = Fabricate(:customer)
-    @part = Fabricate(:part, customer: @customer)
-    @part_attributes = Fabricate.attributes_for(:part)
+
+  describe "Get #index" do
+    it "returns a successful http request status code" do
+      get :index
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "Get #show" do
+    it "returns a successful http request status code" do
+      part = Fabricate(:part)
+
+      get :show, id: part.id
+      expect(response).to have_http_status(:success)
+    end
   end
 
   describe "get #new" do
     it "returns a successful http request status code" do
-      get :new, customer_id: @customer
+
+      get :new
       expect(response).to have_http_status(:success)
     end
   end
@@ -17,33 +29,42 @@ RSpec.describe PartsController, type: :controller do
   describe "POST #create" do
     context "a successful create" do
       it "saves a new part object" do
-        expect { post :create, customer_id: @customer, part: @part_attributes }.to change( Part, :count).by(1)
+
+        post :create, part: Fabricate.attributes_for(:part)
+        expect(Part.count).to eq(1)
       end
     end
   end
 
-  describe '#DELETE destroy' do
-    it 'destroys the requested part' do
-      expect { delete :destroy, { customer_id:  @customer, id: @part.id } }.to change(Part, :count).by(-1)
-    end
-  end
+  describe "Get #edit" do
+    let(:part) { Fabricate(:part) }
+    it "sends a successful edit request" do
+      get :edit, id: part
 
-  describe 'Get #edit' do
-    let(:part) { @part }
-    it 'sends a successful edit request' do
-      get :edit, id: @part, customer_id: @customer
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'PUT #update' do
+  describe "Put #update" do
     context "successful update" do
-      let(:abc) { Fabricate(:part, customer: @customer, name: 'abc') }
-      it 'updates the modified part object' do
-        put :update, customer_id: @customer, part: Fabricate.attributes_for(:part, name: 'xyz'), id: abc.id
-        expect(Part.last.name).to eq('xyz')
-        expect(Part.last.name).not_to eq('abc')
+      let(:abc) { Fabricate(:part, name: "ABC") }
+      it "updates the modified part object" do
+        put :update, part:
+        Fabricate.attributes_for(:part, name: "XYZ"), id: abc.id
+
+        expect(Part.last.name).to eq("XYZ")
+        expect(Part.last.name).not_to eq ("ABC")
       end
     end
   end
+
+  describe "delete #destroy" do
+    let(:part) { Fabricate(:part) }
+    it "deletes the part with the given id" do
+      delete :destroy, id: part.id
+
+      expect(Part.count).to eq(0)
+    end
+  end
+
 end

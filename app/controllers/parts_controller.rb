@@ -1,48 +1,52 @@
 class PartsController < ApplicationController
+before_action :find_part, except: [:index, :new, :create]
+
+  def index
+    @part = Part.all.includes(:procedure, :customer)
+  end
+
+  def show
+  end
 
   def new
-    @customer = Customer.find(params[:customer_id])
     @part = Part.new
   end
 
   def create
-    @customer = Customer.find(params[:customer_id])
-    @part = @customer.parts.create(part_params)
+    @part = Part.create(part_params)
     if @part.save
       flash[:success] = 'New Part has been created!'
-      redirect_to customer_path(@customer)
+      redirect_to parts_path
     else
       render :new, :status => :unprocessable_entity
     end
   end
 
   def edit
-    @customer = Customer.find(params[:customer_id])
-    @part = @customer.parts.find(params[:id])
   end
 
   def update
-    @customer = Customer.find(params[:customer_id])
-    @part = @customer.parts.find(params[:id])
     @part.update_attributes(part_params)
     if @part.save
-      flash[:success] = 'Part has been updated'
-      redirect_to customers_path
+      flash[:success] = 'Part has been updated!'
+      redirect_to @part
     else
-      render :new, :status => :unprocessable_entity
+      render :edit, :status => :unprocessable_entity
     end
   end
 
   def destroy
-    @customer = Customer.find(params[:customer_id])
-    @part = @customer.parts.find(params[:id])
     @part.destroy
     flash[:error] = 'Part has been deleted!'
-    redirect_to customers_path
+    redirect_to parts_path
   end
 
   private
   def part_params
-    params.require(:part).permit(:name, :description, :price, :procedure_id)
+    params.require(:part).permit(:name, :description, :price, :procedure_id, :customer_id)
+  end
+
+  def find_part
+    @part = Part.find(params[:id])
   end
 end

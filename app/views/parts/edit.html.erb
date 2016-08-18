@@ -1,5 +1,6 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <h2 class="text-center">Edit Customer Info</h2>
   <%= render "form" %>
-  <td><%= link_to 'Delete', [ @customer, @part ], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <br />
+  <td><%= link_to 'Delete', part_path(@part), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
 </div>

@@ -38,7 +38,6 @@ RSpec.describe WorkInstructionsController, type: :controller do
   end
 
   describe "Put #update" do
-
     context "successful update" do
       let(:abc) { Fabricate(:work_instruction, name: "ABC") }
       it "updates the modified work instruction object" do
