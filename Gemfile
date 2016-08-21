@@ -14,6 +14,7 @@ gem 'rails_12factor', group: :production
 gem 'bootstrap-sass'
 gem 'sprockets'
 gem 'simple_form'
+gem 'react-rails'
 
 
 group :development, :test do
