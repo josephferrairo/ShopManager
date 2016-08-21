@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
   before_action :find_customer, except: [:index, :new, :create]
 
   def index
-    @customer = Customer.all
+    @customers = Customer.all
   end
 
   def show

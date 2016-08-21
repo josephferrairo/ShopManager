@@ -1,4 +1,4 @@
-<table class="table-striped col-xs-12">
+<!--<table class="table-striped col-xs-12">
   <tr>
     <th><b>Name</b></th>
     <th><b>Customer Code</b></th>
@@ -10,7 +10,7 @@
     <th><b>More Info?</b></th>
     <th>
   </tr>
-  <% @customer.each do |customer| %>
+  <% @customers.each do |customer| %>
   <tr>
     <td><%= customer.name %></td>
     <td><%= customer.customercode %></td>
@@ -24,3 +24,6 @@
   </tr>
   <% end %>
   </table>
+-->
+
+<%= react_component 'Customers', {customers: @customers.as_json(only: [:id, :name, :customercode, :address, :addressdetails, :city, :state, :zipcode ]) } %>

@@ -1,4 +1,4 @@
-<br />
+<!--<br />
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <h2><%= @customer.name %></h2>
   <table class="table">
@@ -13,38 +13,5 @@
       <td><b>Zipcode: </b><%= @customer.zipcode%></td>
     </tr>
   </table>
-  <div class="text-left">
-    <%= link_to 'Add a New Part', new_customer_part_path(@customer), class: 'btn btn-success btn-md' %>
-
-    <div class="text-right">
-      <%= link_to 'Edit Customer', edit_customer_path(@customer), class: 'btn btn-warning btn-md' %>
-    </div>
-  </div>
-</div>
-
-  <div class="booyah-box col-xs-10 col-xs-offset-1">
-    <h3 class="text center">Parts</h3>
-
-    <table class="table">
-      <tr class="default">
-        <th><b>Part Number</b></th>
-        <th><b>Part Description</b></th>
-        <th><b>Price</b></th>
-        <th><b>Procedure </b></th>
-        <th><b>Edit Part?</b></th>
-      </tr>
-      <% @customer.parts.each do |part| %>
-      <tr class="default">
-        <td><%= part.name %></td>
-        <td><%= part.description %></td>
-        <td><%= part.price %></td>
-        <td><%= part.procedure.name %></td>
-        <td><%= link_to 'Edit Part', edit_customer_part_path(@customer, part), class: 'btn btn-primary btn-md' %></td>
-      </tr>
-      <% end %>
-    </table>
-
-
-
-
-  </div>
+-->
+<%= react_component 'Customer', {customer: @customer.as_json(only: [:id, :name, :customercode, :address, :addressdetails, :city, :state, :zipcode]) } %>
