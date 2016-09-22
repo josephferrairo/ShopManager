@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def show
+    #Test commit
   end
 
   def new
